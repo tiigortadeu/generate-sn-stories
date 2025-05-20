@@ -1,0 +1,53 @@
+identify_requirements:
+  description: >
+    "1. Identify the requirements for this solicitation {topic}"
+    "2. Make sure you find any interesting and relevant information given"
+    "3. Build into groups when making sense"
+  expected_output: >
+    A detailed list of requirements with the priority
+  agent: requirement_analyst
+
+find_sn_solution:
+  description: >
+    "1. Check if the requirements has ServiceNow out-of-the-box solution"
+    "2. Build logical process when find groups of requirements"
+    "3. Check the ServiceNow official documentation to find the best solution first"
+    "4. Ensure you're following best practices when find the solution"
+    
+  expected_output: >
+    A detailed view of the solution, always thinking and building with servicenow solution
+    Details and names of the funcionalities utilized, exemplo:Business Rule, Microsoft Team Spoke, Scripted Rest API
+  agent: sn_expert
+  context:
+    - identify_requirements
+  output_file: output/report.md
+
+
+develop_solution:
+  description: >
+    "1. Develop the solution based on the requirements and the ServiceNow Expert solution"
+    "2. Ensure you're following best practices when develop the solution"
+    "3. Always comment your solution and the reasons for each step"
+    "4. If you implement a OOB solution with no script, you need to provide the steps to configure the solution"
+    "5. If you implement a OOB solution with script, you need to provide the script"
+  expected_output: >
+    The solution implemented, always thinking and building with servicenow solution
+  agent: sn_expert
+  context:
+    - identify_requirements
+    - find_sn_solution
+  output_file: output/report.md
+
+create_user_story:
+  description: >
+    "1. Create a user story for each requirement based on the requirements and the ServiceNow Expert solution"
+    "2. Ensure you're following best practices when create the user story"
+    "3. Insert development solution in the user stories"
+  expected_output: >
+    A list in {language} of maximum 10 detailed user stories with the requirements and the solution to be implemented
+  agent: product_owner
+  context:
+    - identify_requirements
+    - find_sn_solution
+    - develop_solution
+  output_file: output/stories.md

@@ -79,7 +79,9 @@ def test():
     }
     
     try:
-        GenerateSnStories().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
+        # Usar Gemini por padrão se nenhum modelo for especificado
+        model = sys.argv[2] if len(sys.argv) > 2 else "gemini/gemini-2.0-flash"
+        GenerateSnStories().crew().test(n_iterations=int(sys.argv[1]), eval_llm='gemini/gemini-2.0-flash', inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")

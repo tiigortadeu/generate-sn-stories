@@ -3,13 +3,13 @@ name = "generate_sn_stories"
 version = "0.1.0"
 description = "Sistema para processar PDFs e associar a incidentes"
 authors = [
-    { name = "Igor", email = "tiigortadeu@gmail.com" },
+    {name = "Igor", email = "tiigortadeu@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.10,<3.13"
 dependencies = [
     "crewai[tools]>=0.120.1,<1.0.0",
-    "google-generativeai>=0.8.4",
+    "google-generativeai>=0.8.4" #main version in January/2025 - crewai v.0.100.0 and crewai-tools 0.33.0
 ]
 
 [project.scripts]
@@ -19,8 +19,17 @@ train = "generate_sn_stories.main:train"
 replay = "generate_sn_stories.main:replay"
 test = "generate_sn_stories.main:test"
 
+[tool.hatch.build.targets.wheel]
+packages = ["src/generate_sn_stories"]
+
+[tool.hatch.build]
+include = ["src/generate_sn_stories/**/*.py"]
+src-layout = true
+
 [build-system]
-requires = [
-    "hatchling",
-]
+requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
+

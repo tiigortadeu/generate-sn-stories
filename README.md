@@ -50,7 +50,7 @@ README.md              # Este arquivo :)
 
 - Python >= 3.10 e < 3.13
 - [UV](https://docs.astral.sh/uv/) para gerenciamento de dependências
-- Chave da API OpenAI (para agentes baseados em LLM)
+- Chave GEMINI
 
 ---
 
@@ -67,7 +67,7 @@ README.md              # Este arquivo :)
    ```
 
 3. Configure suas credenciais:
-   - Adicione sua `OPENAI_API_KEY` ao arquivo `.env`.
+   - Adicione sua `GEMINI_API_KEY` ao arquivo `.env`.
 
 ---
 

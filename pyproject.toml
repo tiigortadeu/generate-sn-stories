@@ -3,7 +3,7 @@ name = "generate_sn_stories"
 version = "0.1.0"
 description = "Sistema para processar PDFs e associar a incidentes"
 authors = [
-    { name = "Igor", email = "tiigortadeu@gmail.com" },
+    { name = "Igor", email = "igoralmeidatech@gmail.com" },
 ]
 readme = "README.md"
 requires-python = ">=3.10,<3.13"
